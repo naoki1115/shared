@@ -1,0 +1,264 @@
+@import "common-style";
+
+/*********************************
+    共通スタイル
+*********************************/
+body{
+  font-size: 1.4rem;
+  font-family: "Mplus 1p", 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+//色
+$light-gray: #dcdcdc;
+$red: #cc1411;
+
+//テキスト
+html{
+  font-size: 62.5%;
+}
+
+
+/*******************
+    header
+*******************/
+header{
+  height: 100px;
+  width: 100%;
+  background-color: $light-gray;
+  @include max-screen($bp-ip){
+    height: 70px;
+  }
+}
+
+.header__logo{
+  float: left;
+  @include clear;
+  padding-left: 40px;
+  line-height: 100px;
+  @include max-screen($bp-pc){
+    padding-left: 20px;
+  }
+  @include max-screen($bp-ip){
+    line-height: 70px;
+    padding-left: 14px
+  }
+
+  img{
+    width: 250px;
+    @include max-screen($bp-pc){
+      width: 200px;
+    }
+    @include max-screen($bp-sp){
+      width: 160px;
+    }
+  }
+
+  span{
+    font-size: 2.6rem;
+    @include max-screen($bp-ip){
+      font-size: 1.8rem;
+    }
+    @include max-screen($bp-iph){
+      font-size: 0;
+    }
+  }
+
+  img, span{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.header__nav{
+  float: right;
+  @include clear;
+
+  ul{
+    font-size: 0;
+  }
+}
+
+.header__nav__item{
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 100px;
+  width: 150px;
+  text-align: center;
+  border-left: solid 1px #fff;
+  font-weight: bold;
+  @include max-screen($bp-pc){
+    width: 130px
+  }
+  @include max-screen($bp-ip){
+    width: 70px;
+    line-height: 70px;
+    font-size: 1.4rem;
+  }
+
+  a{
+    color: black;
+    display: block;
+  }
+}
+
+.header__nav__item-gray{
+  height: 100%;
+  @include max-screen($bp-ip){
+    display: none;
+  }
+
+  @include first-child{
+    background: url(../images/common/header-nav1.png) no-repeat left bottom;
+    background-size: 60%;
+  }
+
+  &:nth-child(2){
+    background: url(../images/common/header-nav2.png) no-repeat left bottom;
+    background-size: 56%;
+  }
+
+  &:nth-child(3){
+    background: url(../images/common/header-nav3.png) no-repeat left bottom;
+    background-size: 60%;
+  }
+
+}
+
+.header__nav__item-blue{
+  background-color: #0068b7;
+  a{
+    color: #fff;
+  }
+}
+
+
+.header__nav-sp{
+  display: none;
+  @include max-screen($bp-ip){
+    display: block;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.nav-sp__trigger{
+  @include absolute-top-right(17px, 90px);
+
+  span{
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: $red;
+
+    &:nth-child(1).opened{
+      display: none;
+    }
+
+    &:nth-child(2).opened{
+      transform: rotate(45deg);
+      transition: .1s linear;
+      @include absolute-top-right(17px, 0);
+    }
+
+    &:nth-child(3).opened{
+      transform: rotate(-45deg);
+      transition: .1s linear;
+      @include absolute-top-right(17px, 0);
+    }
+
+    @include not-last{
+      margin-bottom: 14px;
+    }
+
+  }
+}
+
+
+/*******************
+    footer
+*******************/
+// footer{
+//   background-color: $light-gray;
+//   position: relative;
+//
+//   .footer__inner{
+//     @include inner-size(1440px);
+//   }
+// }
+//
+// .footer__nav{
+//   display: flex;
+// }
+//
+//
+// .footer__right{
+//   @include float-right;
+//
+//   &__item{
+//     display: inline-block;
+//     vertical-align: top;
+//   }
+// }
+//
+// .footer__copyright{
+//   background-color: black;
+//   height: 60px;
+//
+//   p{
+//     line-height: 60px;
+//     color: #fff;
+//     font-size: 1.2rem;
+//     font-weight: lighter;
+//     @include float-right;
+//     padding-right: 15%;
+//   }
+// }
+//
+// .go-top{
+//   width: 62px;
+//   @include absolute-bottom-right(30px, 30px);
+// }
+
+
+.area{
+  width: 100%;
+  background-color: aqua;
+
+  .box-1{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    @include float-left;
+  }
+
+  .box-2{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    @include float-right;
+  }
+
+
+}
+
+// footer{
+//   background-color: $light-gray;
+//
+//   .footer__inner{
+//     @include inner-size(1440px);
+//   }
+// }
+//
+// .footer__left{
+//   @include float-left;
+//   background-color: orange;
+//   height: 100px;
+//   width: 300px;
+// }
+//
+// .footer__right{
+//   @include float-right;
+//   background-color: red;
+//   height: 200px;
+//   width: 70%;
+// }

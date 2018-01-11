@@ -1,0 +1,374 @@
+// メディアクエリ
+$bp-pc: 1100px;
+$bp-ip: 992px;
+$bp-tb: 768px;
+$bp-sp: 580px;
+$bp-vs: 520px;
+$bp-iph: 480px;
+$bp-special: 380px;
+
+//pc用 css
+@mixin max-screen($bp-pc) {
+  @media screen and (max-width: $bp-pc){
+    @content;
+  }
+}
+
+//iPad用 css
+@mixin max-screen($bp-ip) {
+  @media screen and (max-width: $bp-ip){
+    @content;
+  }
+}
+
+//タブレット用 css
+@mixin max-screen($bp-tb) {
+  @media screen and (max-width: $bp-tb){
+    @content;
+  }
+}
+
+//スマホ用 css
+@mixin max-screen($bp-sp) {
+  @media screen and (max-width: $bp-sp){
+    @content;
+  }
+}
+
+//その他・iphone5用 css
+@mixin max-screen($bp-vs) {
+  @media screen and (max-width: $bp-vs){
+    @content;
+  }
+}
+
+
+//PCサイズでのみ表示
+@mixin only-pc($width) {
+  display: block;
+  @mixin max-screen($width) {
+    @media screen and (max-width: $width){
+      display: none;
+    }
+  }
+}
+
+//SPサイズでのみ表示
+@mixin only-sp($width) {
+  display: none;
+  @mixin max-screen($width) {
+    @media screen and (max-width: $width){
+      display: block;
+    }
+  }
+}
+
+
+//レスポンシブに伴うインナーの縮小
+@mixin sp-inner() {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+// ラディウス
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+        border-radius: $radius;
+}
+
+// font-smoothing
+@mixin font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//inline-block IE用
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+//flex 関連
+@mixin flexbox {
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flexbox;
+}
+
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin flex-flow($flow) {
+  -webkit-flex-flow: $flow;
+  -moz-flex-flow: $flow;
+  -ms-flex-flow: $flow;
+  flex-flow: $flow;
+}
+
+@mixin order($val) {
+  -webkit-flex-grow: $grow;
+  -moz-flex-grow: $grow;
+  -ms-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex-shrink($shrink) {
+  -webkit-flex-shrink: $shrink;
+  -moz-flex-shrink: $shrink;
+  -ms-flex-shrink: $shrink;
+  flex-shrink: $shrink;
+}
+
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+  -moz-flex-basis: $width;
+  -ms-flex-basis: $width;
+  flex-basis: $width;
+}
+
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+  -ms-flex-pack: $justify;
+}
+
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+  -moz-align-content: $align;
+  -ms-align-content: $align;
+  align-content: $align;
+}
+
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+  -moz-align-items: $align;
+  -ms-align-items: $align;
+  align-items: $align;
+}
+
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+  -moz-align-self: $align;
+  -ms-align-self: $align;
+  align-self: $align;
+}
+
+
+//擬似クラス関連
+
+//インナーコンテイナー
+@mixin inner-size($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+@mixin display-block-center{
+  display: block;
+  margin: 0 auto;
+}
+
+//clear fix
+@mixin clear {
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+//::after
+@mixin after {
+  &::after{
+    @content;
+  }
+}
+
+//::before
+@mixin before {
+  &::before{
+    @content;
+  }
+}
+
+//:last-child
+@mixin last-child {
+  &:last-child{
+    @content;
+  }
+}
+
+//:first-child
+@mixin first-child {
+  &:first-child{
+    @content;
+  }
+}
+
+//:not-first-child
+@mixin not-first {
+  &:not(:first-child){
+    @content;
+  }
+}
+
+//:not-last-child
+@mixin not-last {
+  &:not(:last-child){
+    @content;
+  }
+}
+
+//アクティブ
+@mixin active {
+  &:active{
+    @content;
+  }
+}
+
+//ホバー
+@mixin hover {
+  &:hover{
+    @content;
+  }
+}
+
+//フォーカス
+@mixin focus {
+  &:focus{
+    @content;
+  }
+}
+
+
+//その他css
+
+//box-sizing
+@mixin box-sizing($border: border-box) {
+  -webkit-box-sizing: $border;
+  -moz-box-sizing: $border;
+  box-sizing: $border;
+}
+
+//基本は全てborder-boxで設定する
+body{
+  *{
+    box-sizing: border-box;
+  }
+}
+
+//background
+@mixin background($url, $repeat, $position, $size) {
+  //urlは " " で囲む
+  background: url($url) $repeat $position;
+  background-size: $size;
+}
+
+//opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}
+
+//リンクカラー
+@mixin linkColor($color, $amount) {
+  //amountに関しては%で数値入力する。
+  color: $color;
+
+  @include hover{
+    color: lighten($color, $amount);
+  }
+
+
+  @include active{
+    color: lighten($color, $amount);
+  }
+
+  @include focus{
+    color: lighten($color, $amount);
+  }
+}
+
+//ホバーしたサイに背景色を帰るアニメーション
+@mixin hover-animation($time, $bg-color){
+  transition: all $time ease 0s;
+  @include hover{
+    background-color: $bg-color;
+  }
+}
+
+//position: absolute
+
+//top・leftを用いたレイアウト
+@mixin absolute-top-left($top:0, $left:0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+//top・rightを用いたレイアウト
+@mixin absolute-top-right($top:0, $right:0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+//bottom・leftを用いたレイアウト
+@mixin absolute-bottom-left($bottom:0, $left:0) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+}
+
+// top・leftを用いたレイアウト
+@mixin absolute-bottom-right($bottom:0, $right:0) {
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+}
+
+//文字に境界線をつける
+@mixin text-shadow($width, $height, $color) {
+  text-shadow: $width $height $color;
+  -webkit-text-shadow: $width $height $color;
+}
+
+//中央寄せ
+@mixin box-center {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+//float-left
+@mixin float-left {
+  float: left;
+  @include clear;
+}
+
+//float-right
+@mixin float-right {
+  float: right;
+  @include clear;
+}

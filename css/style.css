@@ -1,0 +1,252 @@
+@charset "UTF-8";
+body * {
+  box-sizing: border-box;
+}
+
+/*********************************
+    共通スタイル
+*********************************/
+body {
+  font-size: 1.4rem;
+  font-family: "Mplus 1p", 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/*******************
+    header
+*******************/
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #dcdcdc;
+}
+
+@media screen and (max-width: 992px) {
+  header {
+    height: 70px;
+  }
+}
+
+.header__logo {
+  float: left;
+  padding-left: 40px;
+  line-height: 100px;
+}
+
+.header__logo:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__logo {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header__logo {
+    line-height: 70px;
+    padding-left: 14px;
+  }
+}
+
+.header__logo img {
+  width: 250px;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__logo img {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header__logo img {
+    width: 160px;
+  }
+}
+
+.header__logo span {
+  font-size: 2.6rem;
+}
+
+@media screen and (max-width: 992px) {
+  .header__logo span {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__logo span {
+    font-size: 0;
+  }
+}
+
+.header__logo img, .header__logo span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header__nav {
+  float: right;
+}
+
+.header__nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header__nav ul {
+  font-size: 0;
+}
+
+.header__nav__item {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 100px;
+  width: 150px;
+  text-align: center;
+  border-left: solid 1px #fff;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1100px) {
+  .header__nav__item {
+    width: 130px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header__nav__item {
+    width: 70px;
+    line-height: 70px;
+    font-size: 1.4rem;
+  }
+}
+
+.header__nav__item a {
+  color: black;
+  display: block;
+}
+
+.header__nav__item-gray {
+  height: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .header__nav__item-gray {
+    display: none;
+  }
+}
+
+.header__nav__item-gray:first-child {
+  background: url(../images/common/header-nav1.png) no-repeat left bottom;
+  background-size: 60%;
+}
+
+.header__nav__item-gray:nth-child(2) {
+  background: url(../images/common/header-nav2.png) no-repeat left bottom;
+  background-size: 56%;
+}
+
+.header__nav__item-gray:nth-child(3) {
+  background: url(../images/common/header-nav3.png) no-repeat left bottom;
+  background-size: 60%;
+}
+
+.header__nav__item-blue {
+  background-color: #0068b7;
+}
+
+.header__nav__item-blue a {
+  color: #fff;
+}
+
+.header__nav-sp {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .header__nav-sp {
+    display: block;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.nav-sp__trigger {
+  position: absolute;
+  top: 17px;
+  right: 90px;
+}
+
+.nav-sp__trigger span {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #cc1411;
+}
+
+.nav-sp__trigger span:nth-child(1).opened {
+  display: none;
+}
+
+.nav-sp__trigger span:nth-child(2).opened {
+  transform: rotate(45deg);
+  transition: .1s linear;
+  position: absolute;
+  top: 17px;
+  right: 0;
+}
+
+.nav-sp__trigger span:nth-child(3).opened {
+  transform: rotate(-45deg);
+  transition: .1s linear;
+  position: absolute;
+  top: 17px;
+  right: 0;
+}
+
+.nav-sp__trigger span:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+/*******************
+    footer
+*******************/
+.area {
+  width: 100%;
+  background-color: aqua;
+}
+
+.area .box-1 {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  float: left;
+}
+
+.area .box-1:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.area .box-2 {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  float: right;
+}
+
+.area .box-2:after {
+  content: "";
+  display: block;
+  clear: both;
+}
